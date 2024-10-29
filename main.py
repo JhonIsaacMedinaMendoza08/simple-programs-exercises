@@ -1,10 +1,14 @@
-#Escriba un programa que reciba como entrada el radio de un círculo y entregue como salida su perímetro y su área:
-#Ingrese el radio: 5
-#Perimetro: 31.4
-#Área: 78.5
+#Escriba un programa que calcule el promedio de 4 notas ingresadas por el usuario:
 
-Radio = int(input("Enter the radius of the circle: "))
+#Primera nota: 55
+#Segunda nota: 71
+#Tercera nota: 46
+#Cuarta nota: 87
+#El promedio es: 64.75
 
-print (F"""Perimeter : {2*3.1416*Radio}
-Area: {3.1416*Radio*Radio}
-""")
+FirstNote = int(input("Enter your first note: "))
+SecondNote = int(input("Enter your Second note: "))
+thirdNote = int(input("Enter your third note: "))
+FourthNote = int(input("Enter your fourth note: "))
+
+print (F"""The average is : {(FirstNote+SecondNote+thirdNote+FourthNote)/4}""")
