@@ -1,19 +1,18 @@
-#Escriba un programa que pregunte al usuario la hora actual t del reloj y un número entero de horas h, que indique qué hora marcará el reloj dentro de h horas:
+#Parte decimal
+#Escriba un programa que entregue la parte decimal de un número real ingresado por el usuario.
 
-#Hora actual: 3
-#Cantidad de horas: 5
-#En 5 horas, el reloj marcara las 8
-#Hora actual: 11
-#Cantidad de horas: 43
-#En 43 horas, el reloj marcara las 6
+#Ingrese un numero: 4.5
+#0.5
+#Ingrese un numero: -1.19
+#0.19
 
+def decimal(number):
+    if number < 0:
+        return abs(number) - int(abs(number))
+    return number - int(number)
 
-ActualTime = int(input("Insert actual time, plese: "))
-numberhours = int(input("Insert number of hours, plese: "))
-futurehour = (ActualTime + numberhours) % 12
+number2 = float(input("please, enter the number: "))
+decimal2 =  decimal(number2)
 
-if futurehour == 0:
-    futurehour = 12
+print(decimal2)
 
-print(f"""In {numberhours} hours, the clock will strike  {futurehour}
-""")
