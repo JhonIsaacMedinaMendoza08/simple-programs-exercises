@@ -1,24 +1,25 @@
-#Un alumno desea saber que nota necesita en el tercer certamen para aprobar un ramo. El promedio del ramo se calcula con la siguiente formula.
+M = 67  # Mass in grams for a large egg
+rho = 1.038  # density g/cm^3
+c = 3.7  # Heat capacity in J/(g K)
+K = 5.4e-3  # Thermal conductivity in W/(cm·K)
+Tw = 100  # Boiling point of water in °C
+Ty = 70  # Maximum yolk temperature in °C
 
-#Escriba un programa que pregunte al usuario las notas de los dos primeros certamen y la nota de laboratorio, y muestre la nota que necesita el alumno para aprobar el ramo con nota final 60.
 
-#Ingrese nota certamen 1: 45
-#Ingrese nota certamen 2: 55
-#Ingrese nota laboratorio: 65
-#Necesita nota 72 en el certamen 3
+def time_to_boil(To):
+    numerator = (M**(2/3)) * c * (rho**(1/3)) * K * (3.141592653589793**2) * ((4 * 3.141592653589793 / 3)**(2/3))
+    
+    # log(a) - log(b) = log(a/b)
+    term1 = 0.76 * To - Tw
+    term2 = Ty - Tw
+    log_term = term1 / term2
 
-def scoreNece(c1, c2, lab):
-    NF_deseada = 60
-    NC = (c1 + c2 + 0) / 3  
-    C3 = ((NF_deseada - lab * 0.3) / 0.7) * 3 - c1 - c2
-    return C3
+    # Calculamos el tiempo
+    t = numerator * log_term
+    return t
 
-score1 = float(input("Insert score contest 1: "))
-score2 = float(input("Insert score contest 2: "))
-scoreLab = float(input("Insert score contest LAB: "))
+original_temperature = float(input("Enter the original temperature of the egg (°C): "))
+time = time_to_boil(original_temperature)
 
-score3final = scoreNece(score1, score2, scoreLab)
-
-print(f"You need {score3final:.2f} on the final exam 3")
-
+print(f"The time required to reach the maximum temperature is:{time:.2f} seg")
 
